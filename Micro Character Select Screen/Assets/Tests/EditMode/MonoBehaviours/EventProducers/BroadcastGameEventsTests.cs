@@ -69,7 +69,7 @@ namespace Tests.EditMode.MonoBehaviours.EventProducers
             // Assert
             gameEventListenerFake.Received(3).OnEventBroadcast();
         }
-        
+
         [Test]
         public void Script_ExposesFunctionToBroadcast_MultipleTypesOfGameEvents()
         {

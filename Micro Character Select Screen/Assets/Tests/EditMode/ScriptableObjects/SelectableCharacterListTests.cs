@@ -7,9 +7,7 @@ namespace Tests.EditMode.ScriptableObjects
     public class SelectableCharacterListTests
     {
         [Test]
-        public void SelectableCharacterList_List_Exists()
-        {
+        public void SelectableCharacterList_List_Exists() =>
             Assert.NotNull(ScriptableObject.CreateInstance<SelectableCharacterList>());
-        }
     }
 }

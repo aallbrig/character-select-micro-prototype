@@ -10,10 +10,8 @@ namespace Tests.EditMode.ScriptableObjects.Events
     public class CharacterSelectedEventTests
     {
         [Test]
-        public void CharacterSelectedEvent_SO_Exists()
-        {
+        public void CharacterSelectedEvent_SO_Exists() =>
             Assert.NotNull(ScriptableObject.CreateInstance<CharacterSelectedEvent>());
-        }
 
         [Test]
         public void CharacterSelectedEvent_Broadcast_Received()
