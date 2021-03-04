@@ -1,6 +1,5 @@
 ﻿using MonoBehaviours.GamePlay;
 using NUnit.Framework;
-using ScriptableObjects.Lists;
 using ScriptableObjects.SelectableCharacter;
 using UnityEngine;
 
@@ -15,11 +14,9 @@ namespace Tests.EditMode.MonoBehaviours.GamePlay
         [Test]
         public void CharacterButtons_ButtonsMatchProvidedCharacterList_Single()
         {
-            var availableCharacters = ScriptableObject.CreateInstance<SelectableCharacterList>();
-            availableCharacters.list.Add(ScriptableObject.CreateInstance<SelectableCharacter>());
             var dummyContainer = new GameObject();
             var script = new GameObject().AddComponent<CharacterButtons>();
-            script.availableCharacters = availableCharacters;
+            script.availableCharacters.Add(ScriptableObject.CreateInstance<SelectableCharacter>());
             script.buttonContainer = dummyContainer.transform;
             script.buttonPrefab = new GameObject();
 
@@ -31,15 +28,13 @@ namespace Tests.EditMode.MonoBehaviours.GamePlay
         [Test]
         public void CharacterButtons_ButtonsMatchProvidedCharacterList_Multiple()
         {
-            var availableCharacters = ScriptableObject.CreateInstance<SelectableCharacterList>();
-            availableCharacters.list.Add(ScriptableObject.CreateInstance<SelectableCharacter>());
-            availableCharacters.list.Add(ScriptableObject.CreateInstance<SelectableCharacter>());
-            availableCharacters.list.Add(ScriptableObject.CreateInstance<SelectableCharacter>());
-            availableCharacters.list.Add(ScriptableObject.CreateInstance<SelectableCharacter>());
-            availableCharacters.list.Add(ScriptableObject.CreateInstance<SelectableCharacter>());
             var dummyContainer = new GameObject();
             var script = new GameObject().AddComponent<CharacterButtons>();
-            script.availableCharacters = availableCharacters;
+            script.availableCharacters.Add(ScriptableObject.CreateInstance<SelectableCharacter>());
+            script.availableCharacters.Add(ScriptableObject.CreateInstance<SelectableCharacter>());
+            script.availableCharacters.Add(ScriptableObject.CreateInstance<SelectableCharacter>());
+            script.availableCharacters.Add(ScriptableObject.CreateInstance<SelectableCharacter>());
+            script.availableCharacters.Add(ScriptableObject.CreateInstance<SelectableCharacter>());
             script.buttonContainer = dummyContainer.transform;
             script.buttonPrefab = new GameObject();
 

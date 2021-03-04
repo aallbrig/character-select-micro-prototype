@@ -1,6 +1,7 @@
-﻿using MonoBehaviours.Customizers;
+﻿using System.Collections.Generic;
+using MonoBehaviours.Customizers;
 using ScriptableObjects.Events;
-using ScriptableObjects.Lists;
+using ScriptableObjects.SelectableCharacter;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,7 +9,7 @@ namespace MonoBehaviours.GamePlay
 {
     public class CharacterButtons : MonoBehaviour
     {
-        public SelectableCharacterList availableCharacters;
+        public List<SelectableCharacter> availableCharacters = new List<SelectableCharacter>();
         public Transform buttonContainer;
         public GameObject buttonPrefab;
         public CharacterSelectedEvent characterSelected;
@@ -20,7 +21,7 @@ namespace MonoBehaviours.GamePlay
             foreach (Transform child in buttonContainer)
                 Destroy(child.gameObject);
 
-            availableCharacters.list.ForEach(character =>
+            availableCharacters.ForEach(character =>
             {
                 var go = Instantiate(buttonPrefab, buttonContainer);
                 var textCustomizer = go.GetComponentInChildren<TextMeshProTextCustomizer>();
