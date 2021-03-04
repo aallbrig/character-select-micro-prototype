@@ -95,6 +95,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4c48e1cd22cc0854b8444967cfbe047d, type: 2}
   - {fileID: 11400000, guid: 0eea9e894df298745b9c4f3e2ba430f1, type: 2}
   - {fileID: 11400000, guid: 5f8b4be475c1ffc4e8739f091145b94e, type: 2}
+  - {fileID: 11400000, guid: 4572428c86503da4db493e2ab3ab4873, type: 2}
+  - {fileID: 11400000, guid: 627153ebf4dfc314581362bdd0444f1e, type: 2}
   buttonContainer: {fileID: 4508223358723061254}
   buttonPrefab: {fileID: 6816048082088999532, guid: 2c2d3ef7af2bdb74aa490f38dbeda16e,
     type: 3}

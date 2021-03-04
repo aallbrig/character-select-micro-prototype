@@ -9,7 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3d3ae7acfb144179717ef1cd1c218ed, type: 3}
-  m_Name: Game version
+  m_Script: {fileID: 11500000, guid: bf5adfa0f08b4cc9908d7edc4f706f08, type: 3}
+  m_Name: New selectable character
   m_EditorClassIdentifier: 
-  value: v0.1.4
+  characterName:
+    useConstant: 0
+    constantValue: {fileID: 0}
+    var: 
+  prefab:
+    useConstant: 0
+    constantValue: {fileID: 0}
+    var: {fileID: 0}
