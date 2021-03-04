@@ -19,16 +19,5 @@ namespace Tests.EditMode.MonoBehaviours.GamePlay
             var script = new GameObject().AddComponent<CharacterPreview>();
             Assert.Null(script.selectedCharacter);
         }
-
-        [Test]
-        public void Preview_SelectedCharacter_CanBeSet()
-        {
-            var script = new GameObject().AddComponent<CharacterPreview>();
-            var payload = ScriptableObject.CreateInstance<SelectableCharacter>();
-
-            script.SetSelectableCharacter(payload);
-
-            Assert.AreEqual(payload, script.selectedCharacter);
-        }
     }
 }

@@ -1,33 +1,24 @@
 ﻿using System;
 using ScriptableObjects.Refs;
-using ScriptableObjects.SelectableCharacter;
+using ScriptableObjects.Vars;
 using UnityEngine;
 
 namespace MonoBehaviours.GamePlay
 {
     public class CharacterPreview : MonoBehaviour
     {
-        public SelectableCharacter selectedCharacter;
+        public SelectableCharacterVar selectedCharacter;
         public GameObjectRef emptyPrefab;
         public Transform previewContainer;
         private GameObject _instance;
 
-        public void SetSelectableCharacter(SelectableCharacter character)
-        {
-            selectedCharacter = character;
-            RenderPreview();
-        }
-
         private void RenderPreview()
         {
             if (_instance != null) Destroy(_instance);
-            var prefab = selectedCharacter != null ? selectedCharacter.prefab.Value : emptyPrefab.Value;
+            var prefab = selectedCharacter.value != null ? selectedCharacter.value.prefab.Value : emptyPrefab.Value;
             if (prefab != null) _instance = Instantiate(prefab, previewContainer);
         }
 
-        private void OnEnable()
-        {
-            RenderPreview();
-        }
+        private void Update() => RenderPreview();
     }
 }
