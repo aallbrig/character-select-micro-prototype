@@ -1,5 +1,4 @@
-﻿using System;
-using ScriptableObjects.Refs;
+﻿using ScriptableObjects.Refs;
 using UnityEngine;
 
 namespace MonoBehaviours.Customizers
@@ -8,8 +7,8 @@ namespace MonoBehaviours.Customizers
     {
         public FloatRef rotationSpeed = new FloatRef {var = 10.0f};
         private Transform _transform;
+        private void Update() => _transform.Rotate(0, rotationSpeed.Value * Time.deltaTime, 0);
 
         private void OnEnable() => _transform = transform;
-        private void Update() => _transform.Rotate(0, rotationSpeed.Value * Time.deltaTime, 0);
     }
 }

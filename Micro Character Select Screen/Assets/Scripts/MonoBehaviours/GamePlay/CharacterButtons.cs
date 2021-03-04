@@ -1,5 +1,4 @@
-﻿using System;
-using MonoBehaviours.Customizers;
+﻿using MonoBehaviours.Customizers;
 using ScriptableObjects.Events;
 using ScriptableObjects.Lists;
 using UnityEngine;
@@ -14,12 +13,12 @@ namespace MonoBehaviours.GamePlay
         public GameObject buttonPrefab;
         public CharacterSelectedEvent characterSelected;
 
+        private void OnEnable() => Render();
+
         public void Render()
         {
             foreach (Transform child in buttonContainer)
-            {
                 Destroy(child.gameObject);
-            }
 
             availableCharacters.list.ForEach(character =>
             {
@@ -35,7 +34,5 @@ namespace MonoBehaviours.GamePlay
                 if (button != null) button.onClick.AddListener(() => characterSelected.Broadcast(character));
             });
         }
-
-        private void OnEnable() => Render();
     }
 }

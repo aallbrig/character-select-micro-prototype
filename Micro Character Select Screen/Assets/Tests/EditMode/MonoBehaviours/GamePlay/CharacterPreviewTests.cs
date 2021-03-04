@@ -1,17 +1,12 @@
 ﻿using MonoBehaviours.GamePlay;
 using NUnit.Framework;
-using ScriptableObjects.SelectableCharacter;
 using UnityEngine;
 
 namespace Tests.EditMode.MonoBehaviours.GamePlay
 {
     public class CharacterPreviewTests
     {
-        [Test]
-        public void Script_Exists()
-        {
-            Assert.NotNull(new GameObject().AddComponent<CharacterPreview>());
-        }
+        [Test] public void Script_Exists() => Assert.NotNull(new GameObject().AddComponent<CharacterPreview>());
 
         [Test]
         public void Preview_InitialState()
