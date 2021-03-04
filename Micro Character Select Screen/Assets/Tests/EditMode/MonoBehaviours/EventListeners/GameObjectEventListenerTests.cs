@@ -56,7 +56,6 @@ namespace Tests.EditMode.MonoBehaviours.EventListeners
         public void OnGameObjectEventBroadcast_GameEventListenerInvokesUnityEventOnGameEventBroadcast()
         {
             // Arrange
-            GameObject gameObjectArgument = null;
             var eventListenerCalled = false;
             var unityEvent = new GameObjectEventUnityEvent();
             var gameObjectEvent = ScriptableObject.CreateInstance<GameObjectEvent>();
