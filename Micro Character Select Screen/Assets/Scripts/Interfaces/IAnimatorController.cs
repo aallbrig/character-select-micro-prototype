@@ -4,7 +4,7 @@ namespace Interfaces
 {
     public interface IAnimatorController
     {
-        void UpdateAnimator(RuntimeAnimatorController animator);
+        void UpdateAnimator(RuntimeAnimatorController runtimeAnimator);
         void SetTrigger(string triggerName);
     }
 }

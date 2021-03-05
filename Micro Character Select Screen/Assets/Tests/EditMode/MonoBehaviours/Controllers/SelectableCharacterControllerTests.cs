@@ -11,15 +11,6 @@ namespace Tests.EditMode.MonoBehaviours.Controllers
         [Test] public void Script_Exists() => Assert.NotNull(new GameObject().AddComponent<SelectableCharacterController>());
 
         [Test]
-        public void Script_CanCacheAnimator_SelfSource()
-        {
-            var gameObject = new GameObject();
-            var script = gameObject.AddComponent<SelectableCharacterController>();
-        }
-
-        [Test] public void Script_CanCacheAnimator_ExternalSource() {}
-
-        [Test]
         public void Character_Can_Idle()
         {
             var script = new GameObject().AddComponent<SelectableCharacterController>();
