@@ -27,6 +27,7 @@ namespace MonoBehaviours.Spawners
             characterController?.Dance();
         }
 
+        [ContextMenu("De-spawn")]
         public void DestroyInstance()
         {
             if (_instance != null) Destroy(_instance);
