@@ -157,6 +157,8 @@ PlayableDirector:
   m_SceneBindings:
   - key: {fileID: -223115397694202743, guid: ed8eeaceefc28e54696badfb09786eb4, type: 2}
     value: {fileID: 468728613}
+  - key: {fileID: -7842491175494432749, guid: ed8eeaceefc28e54696badfb09786eb4, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &468728615
@@ -189,8 +191,6 @@ MonoBehaviour:
     m_Signals:
     - {fileID: 11400000, guid: fec128093058c9f47b3b2007fc9244d4, type: 2}
     - {fileID: 11400000, guid: 1014fc1f5e90e9c4c85045eb175067ef, type: 2}
-    - {fileID: 11400000, guid: 1f368077eece42e4fbb1daef8639b12c, type: 2}
-    - {fileID: 11400000, guid: 253b5cbc7151aef41b006463a42cf0e1, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -211,6 +211,17 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 468728613}
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -237,32 +248,6 @@ MonoBehaviour:
               type: 2}
             m_ObjectArgumentAssemblyTypeName: ScriptableObjects.FiniteStateMachines.GamePlayCoreFSM.State,
               Scripts
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1263118453}
-          m_MethodName: Run
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1263118453}
-          m_MethodName: Dance
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -675,6 +660,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5580032695591519240, guid: ff28141a0cb30fd44acfe912b248c9cc,
+        type: 3}
+      propertyPath: director
+      value: 
+      objectReference: {fileID: 468728614}
+    - target: {fileID: 5580032695591519240, guid: ff28141a0cb30fd44acfe912b248c9cc,
+        type: 3}
+      propertyPath: trackName
+      value: Cutscene Character
+      objectReference: {fileID: 0}
     - target: {fileID: 5580032695591519244, guid: ff28141a0cb30fd44acfe912b248c9cc,
         type: 3}
       propertyPath: m_Name

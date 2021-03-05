@@ -1,12 +1,16 @@
 ﻿using Interfaces;
 using ScriptableObjects.SelectableCharacter;
 using UnityEngine;
+using UnityEngine.Playables;
 
 namespace MonoBehaviours.Spawners
 {
     public class SelectableCharacterSpawner : MonoBehaviour, ISpawner, ICharacterSelectedEventListener
     {
         public Transform parentTransform;
+        public PlayableDirector director;
+        [Tooltip("Name of timeline track to bind cutscene character to")]
+        public string trackName;
         public SelectableCharacter selectedCharacter;
         public RuntimeAnimatorController animator;
         private GameObject _instance;
@@ -22,6 +26,18 @@ namespace MonoBehaviours.Spawners
             {
                 animatorController.AnimatorSource = _instance;
                 animatorController.UpdateAnimator(animator);
+            }
+
+            if (director != null)
+            {
+                var playableAssetOutput = director.playableAsset.outputs;
+                foreach (var playableBinding in playableAssetOutput)
+                {
+                    if (playableBinding.streamName == trackName)
+                    {
+                        director.SetGenericBinding(playableBinding.sourceObject, _instance.GetComponent<Animator>());
+                    }
+                }
             }
         }
 
