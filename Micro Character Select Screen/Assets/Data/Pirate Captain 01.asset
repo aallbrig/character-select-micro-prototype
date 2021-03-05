@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf5adfa0f08b4cc9908d7edc4f706f08, type: 3}
-  m_Name: New selectable character
+  m_Name: Pirate Captain 01
   m_EditorClassIdentifier: 
   characterName:
     useConstant: 0
     constantValue: {fileID: 0}
-    var: 
+    var: Pirate Captain 01
   prefab:
     useConstant: 0
     constantValue: {fileID: 0}
-    var: {fileID: 0}
+    var: {fileID: 126762, guid: 1cc323c6fbf66b44b87cf8f0d2378b05, type: 3}
