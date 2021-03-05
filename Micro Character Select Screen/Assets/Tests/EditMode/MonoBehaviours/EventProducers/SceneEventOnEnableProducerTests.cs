@@ -10,7 +10,7 @@ namespace Tests.EditMode.MonoBehaviours.EventProducers
     public class SceneEventOnEnableProducerTests : MonoBehaviour
     {
         [Test]
-        public void SceneEventIsBroadcastOnDisable()
+        public void SceneEventIsBroadcastOnEnable()
         {
             // Arrange
             var eventListenerCalled = false;

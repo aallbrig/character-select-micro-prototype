@@ -12,18 +12,17 @@ namespace Tests.EditMode.MonoBehaviours.EventListeners
         public void ScriptEventListenerHandleFunction_UnityEventCanBeInvokedDirectly()
         {
             // Arrange
-            var eventListenerCalled = false;
+            var called = false;
             var unityEvent = new CharacterSelectedEventUnityEvent();
-            unityEvent.AddListener(character => eventListenerCalled = true);
             var eventListener = new GameObject().AddComponent<CharacterSelectedEventListener>();
+            unityEvent.AddListener(character => called = true);
             eventListener.unityEvent = unityEvent;
-            var payload = ScriptableObject.CreateInstance<SelectableCharacter>();
 
             // Act
-            eventListener.OnEventBroadcast(payload);
+            eventListener.OnEventBroadcast(ScriptableObject.CreateInstance<SelectableCharacter>());
 
             // Assert
-            Assert.True(eventListenerCalled);
+            Assert.True(called);
         }
 
         [Test]
@@ -31,12 +30,12 @@ namespace Tests.EditMode.MonoBehaviours.EventListeners
         {
             // Arrange
             SelectableCharacter argument = null;
-            var unityEvent = new CharacterSelectedEventUnityEvent();
-            unityEvent.AddListener(character => argument = character);
-            var evt = ScriptableObject.CreateInstance<CharacterSelectedEvent>();
-            var eventListener = new GameObject().AddComponent<CharacterSelectedEventListener>();
-            eventListener.unityEvent = unityEvent;
             var payload = ScriptableObject.CreateInstance<SelectableCharacter>();
+            var unityEvent = new CharacterSelectedEventUnityEvent();
+            var eventListener = new GameObject().AddComponent<CharacterSelectedEventListener>();
+
+            unityEvent.AddListener(character => argument = character);
+            eventListener.unityEvent = unityEvent;
 
             // Act
             eventListener.OnEventBroadcast(payload);
@@ -51,16 +50,16 @@ namespace Tests.EditMode.MonoBehaviours.EventListeners
             // Arrange
             var eventListenerCalled = false;
             var unityEvent = new CharacterSelectedEventUnityEvent();
-            unityEvent.AddListener(character => eventListenerCalled = true);
             var evt = ScriptableObject.CreateInstance<CharacterSelectedEvent>();
             var eventListener = new GameObject().AddComponent<CharacterSelectedEventListener>();
+
+            unityEvent.AddListener(character => eventListenerCalled = true);
             eventListener.soEvent = evt;
             eventListener.unityEvent = unityEvent;
-            eventListener.OnEnable();
-            var payload = ScriptableObject.CreateInstance<SelectableCharacter>();
+            evt.RegisterListener(eventListener);
 
             // Act
-            evt.Broadcast(payload);
+            evt.Broadcast(ScriptableObject.CreateInstance<SelectableCharacter>());
 
             // Assert
             Assert.True(eventListenerCalled);
@@ -71,14 +70,15 @@ namespace Tests.EditMode.MonoBehaviours.EventListeners
         {
             // Arrange
             SelectableCharacter argument = null;
+            var payload = ScriptableObject.CreateInstance<SelectableCharacter>();
             var unityEvent = new CharacterSelectedEventUnityEvent();
-            unityEvent.AddListener(character => argument = character);
             var evt = ScriptableObject.CreateInstance<CharacterSelectedEvent>();
             var eventListener = new GameObject().AddComponent<CharacterSelectedEventListener>();
+
+            unityEvent.AddListener(character => argument = character);
             eventListener.soEvent = evt;
             eventListener.unityEvent = unityEvent;
-            eventListener.OnEnable();
-            var payload = ScriptableObject.CreateInstance<SelectableCharacter>();
+            evt.RegisterListener(eventListener);
 
             // Act
             evt.Broadcast(payload);

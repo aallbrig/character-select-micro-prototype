@@ -16,15 +16,14 @@ namespace Tests.EditMode.MonoBehaviours.EventListeners
             var unityEvent = new GameObjectEventUnityEvent();
             var gameObjectEvent = ScriptableObject.CreateInstance<GameObjectEvent>();
             var gameObjectEventListener = new GameObject().AddComponent<GameObjectEventListener>();
+
+            unityEvent.AddListener(gameObject => eventListenerCalled = true);
             gameObjectEventListener.soEvent = gameObjectEvent;
             gameObjectEventListener.unityEvent = unityEvent;
-            gameObjectEventListener.OnEnable();
-
-            var dummyGameObject = new GameObject();
-            unityEvent.AddListener(gameObject => eventListenerCalled = true);
+            gameObjectEvent.RegisterListener(gameObjectEventListener);
 
             // Act
-            gameObjectEventListener.OnEventBroadcast(dummyGameObject);
+            gameObjectEventListener.OnEventBroadcast(new GameObject());
 
             // Assert
             Assert.True(eventListenerCalled);
@@ -34,22 +33,22 @@ namespace Tests.EditMode.MonoBehaviours.EventListeners
         public void ScriptEventListenerHandleFunction_CalledWithExpectedArgument()
         {
             // Arrange
-            GameObject gameObjectArgument = null;
+            GameObject passedInArgument = null;
+            var dummyGameObject = new GameObject();
             var unityEvent = new GameObjectEventUnityEvent();
             var gameObjectEvent = ScriptableObject.CreateInstance<GameObjectEvent>();
             var gameObjectEventListener = new GameObject().AddComponent<GameObjectEventListener>();
+
+            unityEvent.AddListener(gameObject => passedInArgument = gameObject);
             gameObjectEventListener.soEvent = gameObjectEvent;
             gameObjectEventListener.unityEvent = unityEvent;
-            gameObjectEventListener.OnEnable();
-            var dummyGameObject = new GameObject();
-
-            unityEvent.AddListener(gameObject => gameObjectArgument = gameObject);
+            gameObjectEvent.RegisterListener(gameObjectEventListener);
 
             // Act
             gameObjectEventListener.OnEventBroadcast(dummyGameObject);
 
             // Assert
-            Assert.AreSame(dummyGameObject, gameObjectArgument, "GameObject is passed in as a parameter");
+            Assert.AreSame(dummyGameObject, passedInArgument, "GameObject is passed in as a parameter");
         }
 
         [Test]
@@ -60,15 +59,14 @@ namespace Tests.EditMode.MonoBehaviours.EventListeners
             var unityEvent = new GameObjectEventUnityEvent();
             var gameObjectEvent = ScriptableObject.CreateInstance<GameObjectEvent>();
             var gameObjectEventListener = new GameObject().AddComponent<GameObjectEventListener>();
-            gameObjectEventListener.soEvent = gameObjectEvent;
-            gameObjectEventListener.unityEvent = unityEvent;
-            gameObjectEventListener.OnEnable();
-            var dummyGameObject = new GameObject();
 
             unityEvent.AddListener(gameObject => eventListenerCalled = true);
+            gameObjectEventListener.soEvent = gameObjectEvent;
+            gameObjectEventListener.unityEvent = unityEvent;
+            gameObjectEvent.RegisterListener(gameObjectEventListener);
 
             // Act
-            gameObjectEvent.Broadcast(dummyGameObject);
+            gameObjectEvent.Broadcast(new GameObject());
 
             // Assert
             Assert.True(eventListenerCalled);
@@ -78,22 +76,22 @@ namespace Tests.EditMode.MonoBehaviours.EventListeners
         public void OnGameObjectEventBroadcast_CalledWithExpectedArgument()
         {
             // Arrange
-            GameObject gameObjectArgument = null;
+            GameObject passedInArgument = null;
+            var dummyGameObject = new GameObject();
             var unityEvent = new GameObjectEventUnityEvent();
             var gameObjectEvent = ScriptableObject.CreateInstance<GameObjectEvent>();
             var gameObjectEventListener = new GameObject().AddComponent<GameObjectEventListener>();
+
+            unityEvent.AddListener(gameObject => passedInArgument = gameObject);
             gameObjectEventListener.soEvent = gameObjectEvent;
             gameObjectEventListener.unityEvent = unityEvent;
-            gameObjectEventListener.OnEnable();
-            var dummyGameObject = new GameObject();
-
-            unityEvent.AddListener(gameObject => gameObjectArgument = gameObject);
+            gameObjectEvent.RegisterListener(gameObjectEventListener);
 
             // Act
             gameObjectEvent.Broadcast(dummyGameObject);
 
             // Assert
-            Assert.AreSame(dummyGameObject, gameObjectArgument, "GameObject is passed in as a parameter");
+            Assert.AreSame(dummyGameObject, passedInArgument, "GameObject is passed in as a parameter");
         }
     }
 }
