@@ -734,6 +734,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cutscene Character
       objectReference: {fileID: 0}
+    - target: {fileID: 2753146245720934775, guid: 25922f30da3134d418468e1141e7c391,
+        type: 3}
+      propertyPath: selectedCharacter
+      value: 
+      objectReference: {fileID: 11400000, guid: 058ba04329851594686b583337d74d78,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25922f30da3134d418468e1141e7c391, type: 3}
 --- !u!1001 &4734404632036044405

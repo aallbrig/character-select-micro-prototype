@@ -23,6 +23,8 @@ namespace MonoBehaviours.Spawners
                 animatorController.AnimatorSource = _instance;
                 animatorController.UpdateAnimator(animator);
             }
+            var characterController = GetComponent<ICharacterController>();
+            characterController?.Dance();
         }
 
         public void DestroyInstance()

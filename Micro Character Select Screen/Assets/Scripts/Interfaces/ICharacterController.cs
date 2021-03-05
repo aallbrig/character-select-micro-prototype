@@ -5,5 +5,6 @@
         void Idle();
         void Walk();
         void Run();
+        void Dance();
     }
 }
